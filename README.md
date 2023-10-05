@@ -1,6 +1,7 @@
 # Blog FrotEnd
 
-Projeto pessoal de uma aplicação de blog com React e Redux.
+Projeto pessoal de um microsserviço front-end de blog com React e Redux.
+O Projeto está sendo projetado para consumir a API Rest do projeto [Py Blog Api](https://github.com/candidosouza/py_blog_api)
 
 
 ### Bibliotecas utilizadas:
@@ -11,3 +12,6 @@ Projeto pessoal de uma aplicação de blog com React e Redux.
 - [x] Material UI
 
 Documentação em endamento...
+
+
+Desenvolvido por Candido Souza
