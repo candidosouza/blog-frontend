@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  blog:
+    container_name: blog
+    build: .
+    entrypoint: ./.docker/entrypoint.sh
+    tty: true
+    volumes:
+      - .:/home/node/app
+    ports:
+      - 3001:3000
