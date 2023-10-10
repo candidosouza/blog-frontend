@@ -16,6 +16,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Container } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -160,23 +161,16 @@ export default function Header() {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Container maxWidth="lg">
-                    <Toolbar>
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="open drawer"
-                            sx={{ mr: 2 }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
+                    <Toolbar sx={{ padding: 0 }} >
                         <Typography
                             variant="h6"
                             noWrap
                             component="div"
                             sx={{ display: { xs: 'none', sm: 'block' } }}
                         >
+                            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
                             Candido Souza
+                            </Link>
                         </Typography>
                         <Search>
                             <SearchIconWrapper>

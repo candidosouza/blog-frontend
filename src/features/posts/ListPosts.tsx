@@ -1,8 +1,7 @@
-import React from 'react'
-import { Grid, Typography } from '@mui/material'
-import { useAppSelector } from '../../app/hooks'
-import { selectPosts } from './postSlice'
+import { Grid, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../app/hooks';
+import { selectPosts } from './postSlice';
 
 
 export default function ListPosts() {
@@ -13,13 +12,13 @@ export default function ListPosts() {
             return <Typography variant="h1">Nenhum post encontrado</Typography>
         }
         return (
-            <Link 
+            <Link
                 to={`post/${slug}`}
                 color="secondary"
                 style={{ textDecoration: 'none' }}
-                >
+            >
                 <Typography variant="h2" component="h1" color="text.secondary" sx={{ mb: 2 }}>
-                    { title }
+                    {title}
                 </Typography>
             </Link>
         )
@@ -28,10 +27,10 @@ export default function ListPosts() {
     function renderLink(slug: string) {
         if (posts.length >= 0) {
             return (
-                <Link 
+                <Link
                     to={`post/${slug}`}
                     style={{ textDecoration: 'none', color: 'secondary' }}
-                    >
+                >
                     <Typography variant="caption" component="h6" color="text.secondary" sx={{ mb: 2 }}>
                         Leia mais...
                     </Typography>
@@ -41,21 +40,21 @@ export default function ListPosts() {
     }
 
     const postsList = posts.map((post) => (
-        <Grid item xs={12} md={12} key={post.id} sx={{mb: 6}}>
+        <Grid item xs={12} md={12} key={post.id} sx={{ mb: 6 }}>
             <Typography variant="caption" component="h2" sx={{ mb: 1 }}>
                 {post.category}
             </Typography>
 
-            
+
             {renderTitle(post.slug, post.title)}
 
             <Typography variant="body1" color="text.primary" sx={{ mb: 2 }}>{post.summary}</Typography>
             <Typography variant="caption" component="h3" sx={{ mb: 1 }}>
                 Autor: {post.author}
             </Typography>
-            
+
             {renderLink(post.slug)}
-            
+
         </Grid>
     ));
 

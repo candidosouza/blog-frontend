@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 import { RootState } from "../../app/store"
 
 interface Post {
@@ -31,12 +31,12 @@ const post: Post = {
 
 const initialState: Post[] = [
     post,
-    {...post, id: 2, title: 'Maxime id perferendis nulla 2', slug: 'maxime-id-perferendis-nulla-2'},
-    {...post, id: 3, title: 'Maxime id perferendis nulla 3', slug: 'maxime-id-perferendis-nulla-3'},
-    {...post, id: 4, title: 'Maxime id perferendis nulla 4', slug: 'maxime-id-perferendis-nulla-4'},
-    {...post, id: 5, title: 'Maxime id perferendis nulla 5', slug: 'maxime-id-perferendis-nulla-5'},
-    {...post, id: 6, title: 'Maxime id perferendis nulla 6', slug: 'maxime-id-perferendis-nulla-6'},
-    {...post, id: 7, title: 'Maxime id perferendis nulla 7', slug: 'maxime-id-perferendis-nulla-7'}
+    { ...post, id: 2, title: 'Maxime id perferendis nulla 2', slug: 'maxime-id-perferendis-nulla-2' },
+    { ...post, id: 3, title: 'Maxime id perferendis nulla 3', slug: 'maxime-id-perferendis-nulla-3' },
+    { ...post, id: 4, title: 'Maxime id perferendis nulla 4', slug: 'maxime-id-perferendis-nulla-4' },
+    { ...post, id: 5, title: 'Maxime id perferendis nulla 5', slug: 'maxime-id-perferendis-nulla-5' },
+    { ...post, id: 6, title: 'Maxime id perferendis nulla 6', slug: 'maxime-id-perferendis-nulla-6' },
+    { ...post, id: 7, title: 'Maxime id perferendis nulla 7', slug: 'maxime-id-perferendis-nulla-7' }
 ]
 
 const postSlice = createSlice({
@@ -46,7 +46,7 @@ const postSlice = createSlice({
 })
 
 export const selectPosts = (state: RootState) => state.posts
-export const selectPostBySlug = (state: RootState, slug: string) => 
+export const selectPostBySlug = (state: RootState, slug: string) =>
     state.posts.find(post => post.slug === slug)
 
 export default postSlice.reducer

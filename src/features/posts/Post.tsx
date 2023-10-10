@@ -1,6 +1,7 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
+import Comments from '../comments/Comments';
 import imgTest from './img_test.png';
 import { selectPostBySlug } from './postSlice';
 
@@ -8,6 +9,7 @@ export default function Post() {
 
     const slug = useParams<{ slug: string }>().slug || '';
     const post = useAppSelector((state) => selectPostBySlug(state, slug));
+    const postId: number = post?.id ? post.id : 0;
 
     return (
         <Grid container spacing={2} sx={{ paddingTop: 4 }}>
@@ -33,36 +35,7 @@ export default function Post() {
                     {post?.content}
                 </Typography>
 
-                <Box sx={{ mb: 4 }}>
-                    <Typography variant="h4" component="h3" color="text.secondary" sx={{ mb: 4 }}>
-                        Deixe seu comentário
-                    </Typography>
-                </Box>
-
-                <Box>
-                    <Typography variant="h4" component="h3" color="text.secondary" sx={{ mb: 4 }}>
-                        Comentários
-                    </Typography>
-                    <Box sx={{ mb: 4 }}>
-                        <Typography variant="caption" component="h3" sx={{ mb: 1 }}>
-                            Candido Souza <br />
-                            10/10/2021
-                        </Typography>
-                        <Typography variant="body1" color="text.primary" sx={{ mb: 2 }}>
-                            A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações
-                        </Typography>
-                    </Box>
-
-                    <Box sx={{ mb: 4 }}>
-                        <Typography variant="caption" component="h3" sx={{ mb: 1 }}>
-                            Candido Souza <br />
-                            10/10/2021
-                        </Typography>
-                        <Typography variant="body1" color="text.primary" sx={{ mb: 2 }}>
-                            A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações
-                        </Typography>
-                    </Box>
-                </Box>
+                <Comments postId={post?.id ? Number(post.id) : 0} />
 
             </Grid>
         </Grid>
