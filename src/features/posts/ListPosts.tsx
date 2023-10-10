@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 export default function ListPosts() {
     const posts = useAppSelector(selectPosts);
 
-    function renderTitle(title: string) {
+    function renderTitle(slug: string, title: string) {
         if (posts.length === 0) {
             return <Typography variant="h1">Nenhum post encontrado</Typography>
         }
         return (
             <Link 
-                to="post/{post.slug}" 
+                to={`post/${slug}`}
                 color="secondary"
                 style={{ textDecoration: 'none' }}
                 >
@@ -29,10 +29,12 @@ export default function ListPosts() {
         if (posts.length >= 0) {
             return (
                 <Link 
-                    to="post/{slug}"
+                    to={`post/${slug}`}
                     style={{ textDecoration: 'none', color: 'secondary' }}
                     >
-                    Leia mais...
+                    <Typography variant="caption" component="h6" color="text.secondary" sx={{ mb: 2 }}>
+                        Leia mais...
+                    </Typography>
                 </Link>
             )
         }
@@ -45,9 +47,9 @@ export default function ListPosts() {
             </Typography>
 
             
-            {renderTitle(post.title)}
+            {renderTitle(post.slug, post.title)}
 
-            <Typography variant="body1" color="text.primary" sx={{ mb: 2 }}>{post.content}</Typography>
+            <Typography variant="body1" color="text.primary" sx={{ mb: 2 }}>{post.summary}</Typography>
             <Typography variant="caption" component="h3" sx={{ mb: 1 }}>
                 Autor: {post.author}
             </Typography>

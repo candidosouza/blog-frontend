@@ -176,15 +176,15 @@ export default function Header() {
                             component="div"
                             sx={{ display: { xs: 'none', sm: 'block' } }}
                         >
-                            My Blog
+                            Candido Souza
                         </Typography>
                         <Search>
                             <SearchIconWrapper>
                                 <SearchIcon />
                             </SearchIconWrapper>
                             <StyledInputBase
-                                placeholder="Search…"
-                                inputProps={{ 'aria-label': 'search' }}
+                                placeholder="Buscar…"
+                                inputProps={{ 'aria-label': 'search', 'variant': 'standard' }}
                             />
                         </Search>
                         <Box sx={{ flexGrow: 1 }} />

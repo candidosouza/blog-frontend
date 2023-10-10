@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSelector, createSlice } from "@reduxjs/toolkit"
 import { RootState } from "../../app/store"
 
 interface Post {
@@ -19,8 +19,8 @@ const post: Post = {
     "id": 1,
     "title": "Maxime id perferendis nulla minus expedita accusamus.",
     "slug": "maxime-id-perferendis-nulla-minus-expedita-accusamus.",
-    "summary": "Minus eveniet sequi.",
-    "content": "Est accusamus officiis laborum reiciendis odio iste. Illum aliquam quibusdam in mollitia. Repellendus eveniet quos vitae. Officia veritatis molestiae quam quos repudiandae.",
+    "summary": "Est accusamus officiis laborum reiciendis odio iste. Illum aliquam quibusdam in mollitia. Repellendus eveniet quos vitae. Officia veritatis molestiae quam quos repudiandae.",
+    "content": "Est accusamus officiis laborum reiciendis odio iste. Illum aliquam quibusdam in mollitia. Repellendus eveniet quos vitae. Officia veritatis molestiae quam quos repudiandae. Est accusamus officiis laborum reiciendis odio iste. Illum aliquam quibusdam in mollitia. Repellendus eveniet quos vitae. Officia veritatis molestiae quam quos repudiandae. Est accusamus officiis laborum reiciendis odio iste. Illum aliquam quibusdam in mollitia. Repellendus eveniet quos vitae. Officia veritatis molestiae quam quos repudiandae.",
     "image": "http://localhost:8000/media/https%3A/placekitten.com/792/454",
     "published": true,
     "created_at": "2023-10-05T14:09:00.752691-03:00",
@@ -46,5 +46,7 @@ const postSlice = createSlice({
 })
 
 export const selectPosts = (state: RootState) => state.posts
+export const selectPostBySlug = (state: RootState, slug: string) => 
+    state.posts.find(post => post.slug === slug)
 
 export default postSlice.reducer
